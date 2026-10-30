@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rainmeter Hub - Animated Skins</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    
+    body {
+        background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #ff00cc);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        color: white; min-height: 100vh; padding: 30px 20px;
+    }
+    @keyframes gradientBG { 
+        0% { background-position: 0% 50%; } 
+        50% { background-position: 100% 50%; } 
+        100% { background-position: 0% 50%; } 
+    }
+
+    .container { max-width: 1200px; margin: auto; }
+    
+    header { text-align: center; margin-bottom: 30px; animation: fadeIn 1s ease; }
+    h1 { font-size: 40px; background: linear-gradient(90deg, #00f2fe, #ff00cc); 
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 20px rgba(0,242,254,0.5);
+    }
+    p { color: #ccc; margin-top: 10px; }
+
+    /* Search Bar */
+    #searchInput {
+        width: 100%; max-width: 600px; padding: 14px 25px; margin: 20px auto; display: block;
+        border-radius: 50px; border: 2px solid rgba(255,255,255,0.2);
+        background: rgba(0,0,0,0.3); color: white; font-size: 16px; outline: none;
+        backdrop-filter: blur(10px); transition: 0.3s;
+    }
+    #searchInput:focus { border-color: #00f2fe; box-shadow: 0 0 20px rgba(0,242,254,0.6); }
+
+    /* Skin Cards Grid */
+    .grid {
+        display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px);
+        border-radius: 20px; padding: 20px; border: 1px solid rgba(255,255,255,0.1);
+        transition: 0.4s; animation: slideUp 0.6s ease;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+    @keyframes slideUp { from{opacity:0; transform:translateY(30px)} to{opacity:1; transform:translateY(0)} }
+    .card:hover { transform: translateY(-10px) scale(1.03); box-shadow: 0 0 30px rgba(255,0,204,0.5); }
+
+    .card img {
+        width: 100%; height: 180px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;
+    }
+    .card h3 { font-size: 20px; margin-bottom: 8px; color: #00f2fe; }
+    .card p { font-size: 13px; color: #aaa; margin-bottom: 15px; min-height: 40px; }
+    .tags { margin-bottom: 15px; }
+    .tag { background: rgba(255,0,204,0.2); padding: 4px 10px; border-radius: 20px; font-size: 11px; margin-right: 5px; }
+
+    .download-btn {
+        display: block; text-align: center; padding: 12px; border-radius: 10px;
+        background: linear-gradient(90deg, #00f2fe, #ff00cc); color: #000; 
+        text-decoration: none; font-weight: bold; transition: 0.3s;
+    }
+    .download-btn:hover { transform: scale(1.05); box-shadow: 0 0 15px #00f2fe; }
+    .no-result { text-align: center; grid-column: 1/-1; padding: 40px; color: #aaa; }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🎨 Rainmeter Skin Hub</h1>
+        <p>Download beautiful Animated + Colorful Rainmeter Skins</p>
+    </header>
+
+    <input type="text" id="searchInput" placeholder="🔍 Search: animated, music, clock, rgb...">
+
+    <div class="grid" id="skinGrid"></div>
+</div>
+
+<script>
+// ME THANA OYAGE SKIN DATA TIKA ADD KARANA
+const skins = [
+    {
+        name: "Battery Skin",
+        desc: "Show battery percentage",
+        img: "skin/skin pht/battery.png",
+        tags: ["animated", "rgb", ],
+        link:  "skin/YM official 3 battery.rmskin"   },
+    {
+        name: "Meter of system",
+        desc: "Full suite with CPU, RAM, Core temp, Gpu . Neon glass effect",
+        img: "skin/skin pht/system.png",
+        tags: ["animated", "CPU", "system", "neon"],
+        link: "skin/meter of system_1.rmskin"  },
+    {
+        name: "Visualizer",
+        desc: "sound base meter. Smooth color bars",
+        img: "skin/skin pht/visualier.png",
+        tags: ["animated", "music", "spotify"],
+        link: "skin/visualizer_1.rmskin"
+    },
+    {
+        name: "Date and Time ",
+        desc: "Minimal but colorful. Clean clock and date design",
+        img: "skin/skin pht/date, time.png",
+        tags: ["minimal", "clock","Date", "colorful"],
+        link: "skin/date and time_1.rmskin"
+    },
+{
+        name: "Date and Day",
+        desc: "Minimal but colorful. Clean clock and day design",
+        img: "skin/skin pht/date.. day.png",
+        tags: ["animated", "Clock", "Day", "colorful"],
+        link: "skin/date and day_1.rmskin"
+    },
+{
+        name: "Calender",
+        desc: "Minimal but colorful. Clean Calender and neon design",
+        img: "skin/skin pht/calender.png",
+        tags: ["Neon", "Calender", "Day", "colorful"],
+        link: "skin/calender_1.rmskin"
+    },
+{
+        name: "Shutdown icon Button",
+        desc: "Small button. White color design",
+        img: "skin/skin pht/shutdown.png",
+        tags: ["Shuting down", "Icon", "fast", "White"],
+        link: "skin/power_1.rmskin"
+    },
+{
+        name: "Restart icon Button",
+        desc: "Small button. White color design",
+        img: "skin/skin pht/Testart.png",
+        tags: ["Restarting", "icon", "Fast", "White", "easy"],
+        link: "skin/restart_1.rmskin"
+    },
+
+];
+
+const skinGrid = document.getElementById('skinGrid');
+const searchInput = document.getElementById('searchInput');
+
+function displaySkins(skinArray) {
+    skinGrid.innerHTML = "";
+    if(skinArray.length === 0){
+        skinGrid.innerHTML = '<p class="no-result">Skin hoya ganna bari wuna 😥</p>';
+        return;
+    }
+    skinArray.forEach(skin => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.innerHTML = `
+            <img src="${skin.img}" alt="${skin.name}">
+            <h3>${skin.name}</h3>
+            <p>${skin.desc}</p>
+            <div class="tags">${skin.tags.map(tag => `<span class="tag">#${tag}</span>`).join('')}</div>
+            <a href="${skin.link}" target="_blank" class="download-btn">⬇ Download Now</a>
+        `;
+        skinGrid.appendChild(card);
+    });
+}
+
+displaySkins(skins);
+
+searchInput.addEventListener('keyup', () => {
+    const term = searchInput.value.toLowerCase();
+    const filtered = skins.filter(skin => 
+        skin.name.toLowerCase().includes(term) || 
+        skin.tags.some(tag => tag.includes(term))
+    );
+    displaySkins(filtered);
+});
+</script>
+
+</body>
+</html>

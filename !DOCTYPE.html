@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YM Official - App Downloads</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #0f172a, #334155);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite; /* 1. Background animation */
+            color: #f8fafc;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 2px solid #334155;
+            animation: fadeDown 1s ease; /* 2. Header animation */
+        }
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        header h1 {
+            font-size: 2.5rem;
+            color: #38bdf8;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 15px #38bdf8; /* glow effect */
+        }
+        header p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #38bdf8;
+            padding-left: 10px;
+            color: #e2e8f0;
+            animation: fadeIn 1.2s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .app-card {
+            background-color: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #334155;
+            opacity: 0; /* animation eka nisa */
+            animation: popIn 0.6s ease forwards; /* 3. Card animation */
+        }
+        /* Eka eka card eka delay karala enna */
+        .app-card:nth-child(1) { animation-delay: 0.2s; }
+        .app-card:nth-child(2) { animation-delay: 0.4s; }
+        .app-card:nth-child(3) { animation-delay: 0.6s; }
+        .app-card:nth-child(4) { animation-delay: 0.8s; }
+
+        @keyframes popIn {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .app-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.5); /* hover glow */
+        }
+
+        .app-info h3 {
+            font-size: 1.3rem;
+            color: #f1f5f9;
+            margin-bottom: 0.3rem;
+        }
+        .app-version {
+            font-size: 0.85rem;
+            color: #38bdf8;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        .app-desc {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+            min-height: 60px;
+        }
+        .download-btn {
+            display: block;
+            width: 100%;
+            background: linear-gradient(90deg, #0284c7, #38bdf8);
+            color: white;
+            text-align: center;
+            padding: 0.75rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+        }
+        .download-btn:hover {
+            background: linear-gradient(90deg, #0369a1, #0ea5e9);
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.7); /* button glow */
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: rgba(15, 23, 42, 0.8);
+            color: #64748b;
+            border-top: 1px solid #1e293b;
+            margin-top: 3rem;
+            animation: fadeUp 1s ease;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>YM Official</h1>
+        <p>Your ultimate destination for downloading official apps & tools & music.</p>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">Available Applications</h2>
+ 
+        <div class="app-grid">
+            <!-- App Card 1 -->
+            <div class="app-card">
+                <div class="app-info">
+                    <h3>PC APP APK </h3>
+                    <span class="app-version">Version 1.0.0 | APK</span>
+                    <p class="app-desc">Me app eka haraha oyata godak lesiyen features pawichchi karanna puluwan. Fast and secure.</p>
+                </div>
+                <a href="OYAGE_APK_LINK_EKA_HARI_FILE_NAME_EKA.apk" class="download-btn">Download APK</a>
+            </div>
+
+            <!-- App Card 2 -->
+            <div class="app-card">
+                <div class="app-info">
+                    <h3>Skin Store</h3>
+                    <span class="app-version">Version 2.1.0 | APK</span>
+                    <p class="app-desc">Get you like any rainmeter skin this store.</p>
+                </div>
+                <a href="G:\skin\skin.html"class="download-btn"> Go to Store </a>
+            </div>
+
+            <!-- Music Card -->
+            <div class="app-card">
+                <div class="app-info">
+                    <h3>🎵 Music Library</h3>
+                    <span class="app-version">All Songs | MP3</span>
+                    <p class="app-desc"> Download annd Play you like any song.</p>
+                </div>
+                <a href= "F:\Music\music.html"class="download-btn"> Go to Music </a> 
+            </div>
+         <!-- Wallpaper Card -->
+            <div class="app-card">
+                <div class="app-info">
+                    <h3> Wallpaper Library</h3>
+                    <span class="app-version">All Pc, Laptop Wallpaper | jpg</span>
+                    <p class="app-desc">Download your like any wallpaper.</p>
+                </div>
+                <a href="F:\Picture\photo.html" class="download-btn"> Go to Music </a> 
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 YM Official. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

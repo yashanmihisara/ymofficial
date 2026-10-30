@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PC APP Import File - Download</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    
+    body {
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        color: white;
+        min-height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Background animation particles */
+    .bg-animation {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    .bg-animation span {
+        position: absolute;
+        display: block;
+        width: 20px;
+        height: 20px;
+        background: rgba(0, 255, 255, 0.2);
+        border-radius: 50%;
+        animation: float 10s infinite linear;
+    }
+    @keyframes float {
+        0% { transform: translateY(100vh) scale(0); opacity: 0; }
+        50% { opacity: 1; }
+        100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+    }
+
+    .app-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+        z-index: 10;
+        animation: popIn 1s ease;
+        box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+    }
+    @keyframes popIn {
+        from { transform: scale(0.5); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    .app-card h3 {
+        font-size: 28px;
+        margin-bottom: 10px;
+        background: linear-gradient(90deg, #00f2fe, #4facfe);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .app-version { color: #aaa; font-size: 14px; }
+    .app-desc { margin: 20px 0; color: #ddd; }
+
+    .download-btn {
+        display: inline-block;
+        padding: 15px 35px;
+        background: linear-gradient(90deg, #00f2fe, #4facfe);
+        color: #000;
+        font-weight: bold;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: 0.3s;
+        box-shadow: 0 0 20px rgba(0, 242, 254, 0.5);
+    }
+    .download-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 40px rgba(0, 242, 254, 0.8);
+    }
+
+    /* Music button */
+    #musicBtn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(255,255,255,0.2);
+        border: none;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 50px;
+        cursor: pointer;
+        z-index: 10;
+    }
+</style>
+</head>
+<body>
+
+<div class="bg-animation"></div>
+
+<button id="musicBtn" onclick="toggleMusic()">🔊 Music</button>
+
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+    Oya browser eka audio support karanne na
+</audio>
+
+<div class="app-card">
+    <div class="app-info">
+        <h3>Welcome YM OFFICIAL Site</h3>
+        <span class="app-version">Version 2.1.0 | APK</span>
+        <p class="app-desc">Latest update eka dan download karaganna puluwan. No ads, high performance.</p>
+    </div>
+    <a href="F:\Document\!DOCTYPE.html" onclick="goToNextPage(2)" class="download-btn"> Next</a>
+</div>
+
+<script>
+// Background particles hadanna
+for(let i=0; i<20; i++){
+    let span = document.createElement('span');
+    span.style.left = Math.random()*100 + '%';
+    span.style.animationDelay = Math.random()*5 + 's';
+    span.style.width = span.style.height = Math.random()*20 + 10 + 'px';
+    document.querySelector('.bg-animation').appendChild(span);
+}
+
+// Music control
+const music = document.getElementById('bgMusic');
+let musicPlaying = false;
+window.addEventListener('click', () => {
+    if(!musicPlaying){
+        music.play();
+        musicPlaying = true;
+    }
+}, {once: true});
+
+function toggleMusic(){
+    if(music.paused){ music.play(); musicBtn.innerText = "🔊 Music"; }
+    else{ music.pause(); musicBtn.innerText = "🔇 Music"; }
+}
+
+// Download + Redirect
+function goToNextPage() {
+    setTimeout(function() {
+        window.location.href = "thankyou.html"; 
+    }, 1500); 
+}
+</script>
+
+</body>
+</html>
